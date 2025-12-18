@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Açelya, Seni Seviyorum</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Georgia', serif;
+            color: white;
+            text-align: center;
+            background-color: #000;
+            overflow: hidden;
+        }
+        .page {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 1.5s ease;
+        }
+        .page.active {
+            opacity: 1;
+        }
+        .page img {
+            max-width: 85%;
+            max-height: 60%;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(255, 105, 180, 0.5);
+            margin-bottom: 30px;
+        }
+        h1 {
+            font-size: 3em;
+            margin: 15px;
+            text-shadow: 0 0 10px rgba(255, 182, 193, 0.8);
+        }
+        p {
+            font-size: 1.8em;
+            margin: 10px;
+            opacity: 0.9;
+        }
+        .emoji {
+            font-size: 3em;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Klasördeki muzik.mp3 dosyasını çalacak, otomatik başlar ve döngüde devam eder -->
+    <audio autoplay loop controls style="display:none;">
+        <source src="muzik.mp3" type="audio/mpeg">
+        Tarayıcın ses desteklemiyor.
+    </audio>
+
+    <!-- Sayfa 1 -->
+    <div id="page1" class="page active">
+        <img src="image1.jpg" alt="Açelya">
+        <h1>Açelya,</h1>
+        <p>Seni hala çok seviyorum 💕</p>
+        <div class="emoji">🥀</div>
+    </div>
+
+    <!-- Sayfa 2 -->
+    <div id="page2" class="page">
+        <img src="image2.jpg" alt="Açelya">
+        <h1>Sensiz geceler çok uzun</h1>
+        <p>Rüyamda seni gördüm bu gece...</p>
+        <p>Hemen uyandım sabah olmadan 🌙</p>
+        <div class="emoji">😔</div>
+    </div>
+
+    <!-- Sayfa 3 -->
+    <div id="page3" class="page">
+        <img src="image3.jpg" alt="Açelya">
+        <h1>Bu şarkı şu an senin için çalıyor</h1>
+        <p>Get Hob - Da... Dinle lütfen 🎶</p>
+        <div class="emoji">💔</div>
+    </div>
+
+    <!-- Sayfa 4 -->
+    <div id="page4" class="page">
+        <img src="image4.jpg" alt="Açelya">
+        <h1>Açelya, beni özledin mi?</h1>
+        <p>Biliyorum bir gün döneceksin 🥺</p>
+        <div class="emoji">🌧️</div>
+    </div>
+
+    <!-- Sayfa 5 -->
+    <div id="page5" class="page">
+        <img src="image1.jpg" alt="Açelya">
+        <h1>Hala buradayım Açelya</h1>
+        <p>Seni bekliyorum... Sonsuza kadar ❤️</p>
+        <div class="emoji">🖤</div>
+    </div>
+
+    <script>
+        const pages = document.querySelectorAll('.page');
+        let currentPage = 0;
+
+        function nextPage() {
+            pages[currentPage].classList.remove('active');
+            currentPage = (currentPage + 1) % pages.length;
+            pages[currentPage].classList.add('active');
+        }
+
+        setInterval(nextPage, 5000);
+    </script>
+</body>
+</html>
